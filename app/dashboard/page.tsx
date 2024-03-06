@@ -18,6 +18,10 @@ import Link from "next/link";
 import { EditIcon, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UpdateHomebtn from "@/components/UpdateHomebtn";
+
+export const runtime = 'edge';
+
+
 export default async function Dashboard() {
   const serverSupabase = createServerComponentClient({ cookies });
   const { data: user } = await serverSupabase.auth.getUser();

@@ -5,6 +5,8 @@ import HomeCard from "@/components/common/HomeCard";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
+export const runtime = 'edge';
+
 export default async function Home({
   searchParams,
 }: {

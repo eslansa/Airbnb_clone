@@ -6,6 +6,8 @@ import { getImageUrl } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
+export const runtime = 'edge';
+
 export default async function ShowHome({ params }: { params: { id: string } }) {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase
