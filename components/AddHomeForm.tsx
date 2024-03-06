@@ -42,11 +42,13 @@ export default function AddHomeForm() {
   const handleImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      setImage(file);
-      setValue("image", file);
+       setImage(file);
+       setValue("image", file);
+    } else {
+       console.error("No se seleccionó ningún archivo");
     }
-  };
-
+   };
+   
   useEffect(() => {
     setValue("categories", homeCategories);
     setValue("description", description);
@@ -57,13 +59,15 @@ export default function AddHomeForm() {
     const user = await supabase.auth.getUser();
     const uniquePath = Date.now() + "_" + generateRandomNumber();
     const { data: imgData, error: imgErr } = await supabase.storage
-      .from(Env.S3_BUCKET)
-      .upload(uniquePath, image!);
-    if (imgErr) {
-      toast.error(imgErr.message, { theme: "colored" });
-      setLoading(false);
-      return;
-    }
+    .from(Env.S3_BUCKET)
+    .upload(uniquePath, image!);
+   if (imgErr) {
+    console.error("Error al subir la imagen:", imgErr);
+    toast.error(imgErr.message, { theme: "colored" });
+    setLoading(false);
+    return;
+   }
+   
 
     // * Store home
     const { error: homeErr } = await supabase.from("homes").insert({

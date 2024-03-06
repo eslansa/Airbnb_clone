@@ -34,7 +34,7 @@ export default async function ShowHome({ params }: { params: { id: string } }) {
           unoptimized
         />
         <h1 className="text-2xl font-bold text-brand">
-          Hosted By {home?.users?.name}
+          Reservado por {home?.users?.name}
         </h1>
 
         <h1 className="text-xl font-semibold">
