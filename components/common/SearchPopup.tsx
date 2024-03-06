@@ -22,7 +22,7 @@ export default function SearchPopup({ session }: { session: any }) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState<string>("");
   const [searchParams, setSearchParams] = useState<SearchParamsType>({
-    country: "Anywhere",
+    country: "Cualquier lugar",
     weeks: "",
   });
   const [date, setDate] = useState<Array<DateStateType>>([
@@ -42,7 +42,7 @@ export default function SearchPopup({ session }: { session: any }) {
       setSearchParams({
         ...searchParams,
         weeks: `${difference} days`,
-        country: params?.get("country") ? params?.get("country")! : "Anywhere",
+        country: params?.get("country") ? params?.get("country")! : "Cualquier lugar",
       });
     }
   }, [params]);
@@ -76,10 +76,10 @@ export default function SearchPopup({ session }: { session: any }) {
             <span className="pl-2 text-sm">{searchParams.country}</span>
             <span>|</span>
             <span className="text-sm">
-              {searchParams.weeks != "" ? searchParams.weeks : "Any week"}
+              {searchParams.weeks != "" ? searchParams.weeks : "Cualquier Dia"}
             </span>
             <span>|</span>
-            <span className="text-muted-foreground text-sm">Add Guest</span>
+            <span className="text-muted-foreground text-sm">Agregar invitado</span>
             <span className="bg-brand text-white p-2 rounded-full pr-2">
               <Search width={14} height={14} />
             </span>
@@ -101,10 +101,10 @@ export default function SearchPopup({ session }: { session: any }) {
 
               <div className="flex w-1/3 justify-between items-center mt-5">
                 <Button className="bg-brand" onClick={handleSubmit}>
-                  Search
+                  Buscar
                 </Button>
                 <Button variant="secondary" onClick={() => setOpen(false)}>
-                  Close
+                  Cerrar
                 </Button>
               </div>
             </div>

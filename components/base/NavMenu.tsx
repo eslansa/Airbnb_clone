@@ -25,8 +25,11 @@ export default function NavMenu({ session }: { session: object | null }) {
               <>
                 <Link href="/dashboard">
                   <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
-                    Dashboard
+                    Administrar
                   </li>
+                </Link>
+                <Link href="/add-home" className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                  Agregar una casa
                 </Link>
 
                 <SignOutBtn />

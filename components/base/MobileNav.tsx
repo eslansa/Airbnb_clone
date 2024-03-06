@@ -8,8 +8,8 @@ export default function MobileNav() {
         <div className="flex items-center space-x-4">
           <Search height={20} width={20} />
           <div className="flex flex-col">
-            <span className="text-sm font-semibold">Anywhere</span>
-            <span className="text-xs">Any week . Add guest</span>
+            <span className="text-sm font-semibold">En cualquier lugar</span>
+            <span className="text-xs">Cualquier semana. Agregar invitado</span>
           </div>
         </div>
 

@@ -32,20 +32,20 @@ export default function SignOutBtn() {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
-          Logout
+          Salir
         </li>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Estas seguro?</AlertDialogTitle>
           <AlertDialogDescription>
-            This will delete your auth session and you have to login again to
-            access private routes.
+          Esto eliminará su sesión de autenticación y tendrá que iniciar sesión nuevamente para
+            acceder a rutas privadas.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={logout}>Continue</AlertDialogAction>
+          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          <AlertDialogAction onClick={logout}>Continuar</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

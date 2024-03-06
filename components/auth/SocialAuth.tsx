@@ -49,7 +49,7 @@ export default function SocialAuth() {
           alt="google"
           className="mr-5"
         />
-        Continue with Google
+        Continuar con Google
       </Button>
       <Button variant="outline" className="w-full mb-2" onClick={githubLogin}>
         <Image
@@ -59,7 +59,7 @@ export default function SocialAuth() {
           alt="google"
           className="mr-5"
         />
-        Continue with Github
+        Continuar con Github
       </Button>
     </div>
   );

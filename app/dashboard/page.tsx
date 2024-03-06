@@ -34,12 +34,12 @@ export default async function Dashboard() {
             <TableCaption>Your added Adrenalina & Turismo Homes.</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead>Country</TableHead>
-                <TableHead>City</TableHead>
-                <TableHead>Title</TableHead>
-                <TableHead>Image</TableHead>
-                <TableHead>Price</TableHead>
-                <TableHead>Action</TableHead>
+                <TableHead>País</TableHead>
+                <TableHead>Ciudad</TableHead>
+                <TableHead>Nombre</TableHead>
+                <TableHead>Imagen</TableHead>
+                <TableHead>Precio</TableHead>
+                <TableHead>Acciones</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

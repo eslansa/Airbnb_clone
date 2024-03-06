@@ -56,24 +56,24 @@ export default function LoginModal() {
             className="mb-2 hover:bg-gray-200 rounded-md p-2 cursor-pointer"
             onClick={() => setOpen(true)}
           >
-            Login
+            Loguearse
           </li>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle asChild>
               <div className="flex justify-between items-center">
-                <span>Login</span>
+                <span>Loguearse</span>
                 <X onClick={() => setOpen(false)} className="cursor-pointer" />
               </div>
             </AlertDialogTitle>
             <AlertDialogDescription asChild>
               <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <h1 className="text-lg font-bold">Welcome to Adrenalina & Turismo</h1>
+                  <h1 className="text-lg font-bold">Bienvenido a Adrenalina & Turismo</h1>
 
                   <div className="mt-5">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">Correo</Label>
                     <Input
                       type="email"
                       placeholder="Enter your email"
@@ -85,7 +85,7 @@ export default function LoginModal() {
                     </span>
                   </div>
                   <div className="mt-5">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password">Contraseña</Label>
                     <Input
                       placeholder="Enter your password"
                       type="password"
@@ -98,10 +98,10 @@ export default function LoginModal() {
                   </div>
 
                   <div className="mt-5">
-                    <Button className="w-full bg-brand">Continue</Button>
+                    <Button className="w-full bg-brand">Continuar</Button>
                   </div>
                   <div className="text-center py-2 text-lg font-bold text-black">
-                    -- OR --
+                    -- O --
                   </div>
                 </form>
                 <SocialAuth />
