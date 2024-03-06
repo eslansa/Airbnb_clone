@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
 export async function middleware(request: NextRequest) {
   // Cast cookieValues to ReadonlyRequestCookies if necessary
-  const cookieValues = request.cookies as ReadonlyRequestCookies;
+  const cookieValues = request.cookies as unknown as ReadonlyRequestCookies;
 
   // Pass the readonly cookies to createServerComponentClient
   const supabase = createServerComponentClient({

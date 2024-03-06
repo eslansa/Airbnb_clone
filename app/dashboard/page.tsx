@@ -15,8 +15,9 @@ import Image from "next/image";
 import { getImageUrl } from "@/lib/utils";
 import DeleteHomebtn from "@/components/DeleteHomebtn";
 import Link from "next/link";
-import { Eye } from "lucide-react";
+import { EditIcon, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import UpdateHomebtn from "@/components/UpdateHomebtn";
 export default async function Dashboard() {
   const serverSupabase = createServerComponentClient({ cookies });
   const { data: user } = await serverSupabase.auth.getUser();
@@ -24,6 +25,8 @@ export default async function Dashboard() {
     .from("homes")
     .select("id ,image ,title ,country ,city ,price ,created_at")
     .eq("user_id", user.user?.id);
+
+
   return (
     <div>
       <Navbar />
@@ -31,7 +34,7 @@ export default async function Dashboard() {
       <div className="container mt-5">
         {homes && homes.length > 0 && (
           <Table>
-            <TableCaption>Your added Adrenalina & Turismo Homes.</TableCaption>
+            <TableCaption>Hoteles en Adrenalina & Turismo.</TableCaption>
             <TableHeader>
               <TableRow>
                 <TableHead>País</TableHead>
@@ -66,6 +69,7 @@ export default async function Dashboard() {
                           <Eye />
                         </Button>
                       </Link>
+                      {/* <UpdateHomebtn id={item.id} /> */}
                     </div>
                   </TableCell>
                 </TableRow>
@@ -76,7 +80,7 @@ export default async function Dashboard() {
 
         {homes && homes.length < 1 && (
           <h1 className="text-center font-bold text-xl">
-            No Home found. Please add your home
+            No hay hoteles por ahora...
           </h1>
         )}
       </div>
