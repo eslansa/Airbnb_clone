@@ -1,15 +1,16 @@
+import React from "react";
 import Navbar from "@/components/base/Navbar";
 import Toast from "@/components/base/Toast";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+ Table,
+ TableBody,
+ TableCaption,
+ TableCell,
+ TableHead,
+ TableHeader,
+ TableRow,
 } from "@/components/ui/table";
 import Image from "next/image";
 import { getImageUrl } from "@/lib/utils";
@@ -18,16 +19,16 @@ import Link from "next/link";
 import { EditIcon, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UpdateHomebtn from "@/components/botons/hotels/UpdateHomebtn";
+
 export default async function Dashboard() {
-  const serverSupabase = createServerComponentClient({ cookies });
-  const { data: user } = await serverSupabase.auth.getUser();
-  const { data: homes } = await serverSupabase
+ const serverSupabase = createServerComponentClient({ cookies });
+ const { data: user } = await serverSupabase.auth.getUser();
+ const { data: homes } = await serverSupabase
     .from("homes")
     .select("id ,image ,title ,country ,city ,price ,created_at")
     .eq("user_id", user.user?.id);
 
-
-  return (
+ return (
     <div>
       <Navbar />
       <Toast />
@@ -48,10 +49,10 @@ export default async function Dashboard() {
             <TableBody>
               {homes.map((item) => (
                 <TableRow key={item.id}>
-                  <TableCell>{item.country}</TableCell>
-                  <TableCell>{item.city}</TableCell>
-                  <TableCell>{item.title}</TableCell>
-                  <TableCell>
+                 <TableCell>{item.country}</TableCell>
+                 <TableCell>{item.city}</TableCell>
+                 <TableCell>{item.title}</TableCell>
+                 <TableCell>
                     <Image
                       src={getImageUrl(item.image)}
                       width={40}
@@ -59,9 +60,9 @@ export default async function Dashboard() {
                       alt="Home_img"
                       className="rounded-full w-10 h-10"
                     />
-                  </TableCell>
-                  <TableCell>{item.price}</TableCell>
-                  <TableCell>
+                 </TableCell>
+                 <TableCell>{item.price}</TableCell>
+                 <TableCell>
                     <div className="flex items-center space-x-2">
                       <DeleteHomebtn id={item.id} />
                       <Link href={`/home/${item.id}`}>
@@ -69,9 +70,10 @@ export default async function Dashboard() {
                           <Eye />
                         </Button>
                       </Link>
-                      {/* <UpdateHomebtn id={item.id} /> */}
+                      {/* Pasa solo el id al componente UpdateHomebtn */}
+                      <UpdateHomebtn id={item.id} />
                     </div>
-                  </TableCell>
+                 </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -85,5 +87,5 @@ export default async function Dashboard() {
         )}
       </div>
     </div>
-  );
+ );
 }
