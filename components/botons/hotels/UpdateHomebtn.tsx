@@ -15,7 +15,7 @@ import { Edit2Icon, Trash } from "lucide-react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Env from "@/config/Env";
 import { useRouter } from "next/navigation";
-import { Button } from "./ui/button";
+import { Button } from "../../ui/button";
 export default function UpdateHomebtn({ id, onEdit }: { id: number, onEdit: (id: number) => void }) {
     const router = useRouter();
     const supabaseClient = createClientComponentClient();

@@ -34,3 +34,14 @@ type SearchParamsType = {
   country: string;
   weeks: string;
 };
+
+type ReservaType = {
+  id: any;
+  created_at: any;
+  id_uid: any;
+  date_ini: any;
+  date_fin: any;
+  pay: any;
+  num_person: any;
+  id_hotel: any;
+}

@@ -1,4 +1,4 @@
-import AddHomeForm from "@/components/AddHomeForm";
+import AddHomeForm from "@/components/botons/hotels/AddHomeForm";
 import Navbar from "@/components/base/Navbar";
 import Counter from "@/components/common/Counter";
 import { generateRandomNumber } from "@/lib/utils";
@@ -14,7 +14,7 @@ export default function AddHome() {
         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:gap-2 gap-4">
           <div>
           <Image src="/images/logo1.png" width={300} height={300} alt="logo" />
-            {/* <h1 className="text-brand font-bold text-7xl">Adrenalina & Turismo it</h1> */}
+            <h1 className="text-brand font-bold text-7xl">Adrenalina & Turismo</h1>
             {/* Ya vere q hago aqui */}
             {/* <h1 className="text-black font-semibold text-3xl mb-3">
               You could earn

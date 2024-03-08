@@ -18,12 +18,13 @@ import Link from "next/link";
 import { EditIcon, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UpdateHomebtn from "@/components/botons/hotels/UpdateHomebtn";
-export default async function Dashboard() {
+import DeleteReservaBtn from "@/components/botons/reservas/DeleteReservaBtn";
+export default async function Dashboardxd() {
   const serverSupabase = createServerComponentClient({ cookies });
   const { data: user } = await serverSupabase.auth.getUser();
-  const { data: homes } = await serverSupabase
-    .from("homes")
-    .select("id ,image ,title ,country ,city ,price ,created_at")
+  const { data: reservas } = await serverSupabase
+    .from("reservas")
+    .select("id ,created_at ,user_id ,date_ini ,date_fin ,pay ,num_person")
     .eq("user_id", user.user?.id);
 
 
@@ -32,38 +33,33 @@ export default async function Dashboard() {
       <Navbar />
       <Toast />
       <div className="container mt-5">
-        {homes && homes.length > 0 && (
+        {reservas && reservas.length > 0 && (
           <Table>
-            <TableCaption>Hoteles en Adrenalina & Turismo.</TableCaption>
+            <TableCaption>Reservas en Adrenalina & Turismo.</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead>País</TableHead>
-                <TableHead>Ciudad</TableHead>
-                <TableHead>Nombre</TableHead>
-                <TableHead>Imagen</TableHead>
-                <TableHead>Precio</TableHead>
+                <TableHead>ID</TableHead>
+                <TableHead>Creación Reserva</TableHead>
+                <TableHead>Fecha Inicio</TableHead>
+                <TableHead>Fecha Fin</TableHead>
+                <TableHead>Metodo de Pago</TableHead>
+                <TableHead>Número de Personas</TableHead>
                 <TableHead>Acciones</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {homes.map((item) => (
+              {reservas.map((item) => {
+                return (
                 <TableRow key={item.id}>
-                  <TableCell>{item.country}</TableCell>
-                  <TableCell>{item.city}</TableCell>
-                  <TableCell>{item.title}</TableCell>
-                  <TableCell>
-                    <Image
-                      src={getImageUrl(item.image)}
-                      width={40}
-                      height={40}
-                      alt="Home_img"
-                      className="rounded-full w-10 h-10"
-                    />
-                  </TableCell>
-                  <TableCell>{item.price}</TableCell>
+                  <TableCell>{item.id}</TableCell>
+                  <TableCell>{item.created_at}</TableCell>
+                  <TableCell>{item.date_ini}</TableCell>
+                  <TableCell>{item.date_fin}</TableCell>
+                  <TableCell>{item.pay}</TableCell>
+                  <TableCell>{item.num_person}</TableCell>
                   <TableCell>
                     <div className="flex items-center space-x-2">
-                      <DeleteHomebtn id={item.id} />
+                      <DeleteReservaBtn id={item.id} />
                       <Link href={`/home/${item.id}`}>
                         <Button size="icon" className="bg-green-400">
                           <Eye />
@@ -73,12 +69,14 @@ export default async function Dashboard() {
                     </div>
                   </TableCell>
                 </TableRow>
-              ))}
+                );
+            }
+            )}
             </TableBody>
           </Table>
         )}
 
-        {homes && homes.length < 1 && (
+        {reservas && reservas.length < 1 && (
           <h1 className="text-center font-bold text-xl">
             No hay hoteles por ahora...
           </h1>

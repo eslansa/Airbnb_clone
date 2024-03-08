@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { countries } from "@/config/countries";
-import { Input } from "./ui/input";
+import { Input } from "../../ui/input";
 
 import { categories } from "@/config/categories";
 import { ToastContainer, toast } from "react-toastify";

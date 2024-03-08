@@ -5,40 +5,41 @@ import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Categories() {
-  const router = useRouter();
-  const params = useSearchParams();
-  const [cat, setCat] = useState<string>("");
+ const router = useRouter();
+ const params = useSearchParams();
+ const [selectedCats, setSelectedCats] = useState<string[]>([]);
 
-  useEffect(() => {
-    if (params?.get("category")) {
-      setCat(params?.get("category")!);
+ useEffect(() => {
+    const categoryParam = params?.get("category");
+    if (categoryParam) {
+      setSelectedCats(categoryParam.split(','));
     }
-  }, [params]);
+ }, [params]);
 
-  const handleClick = (cat: string) => {
+ const handleClick = (cat: string) => {
+    const newSelectedCats = selectedCats.includes(cat)
+      ? selectedCats.filter(c => c !== cat)
+      : [...selectedCats, cat];
+
     const fullUrl = new URL(window.location.href);
-    fullUrl.searchParams.set("category", cat);
+    fullUrl.searchParams.set("category", newSelectedCats.join(','));
     router.replace(`/${fullUrl.search}`);
-  };
+ };
 
-  return (
+ return (
     <div className="flex items-center space-x-8 px-10 my-3 overflow-x-auto whitespace-nowrap scroll-smooth pb-4">
       {categories.map((item) => (
         <div
-          className="flex justify-center flex-col items-center cursor-pointer "
+          className={`flex justify-center flex-col items-center cursor-pointer ${selectedCats.includes(item.name) ? "border-b-4 border-brand" : ""}`}
           key={item.name}
           onClick={() => handleClick(item.name)}
         >
           <Image src={item.icon} width={25} height={25} alt={item.name} />
-          <span
-            className={`${
-              cat == item.name ? "inline-block border-b-4 border-brand" : ""
-            } text-sm`}
-          >
+          <span className="text-sm">
             {item.name}
           </span>
         </div>
       ))}
     </div>
-  );
+ );
 }
