@@ -13,7 +13,7 @@ export default function AddHome() {
       <div className="container mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:gap-2 gap-4">
           <div>
-          <Image src="/icons/logo0.svg" width={300} height={300} alt="logo" />
+          <Image src="/icons/isologo.svg" width={300} height={300} alt="logo" />
             <h1 className="text-brand font-bold text-7xl">Adrenalina & Turismo</h1>
             {/* Ya vere q hago aqui */}
             {/* <h1 className="text-black font-semibold text-3xl mb-3">

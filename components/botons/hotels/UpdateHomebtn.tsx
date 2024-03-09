@@ -41,7 +41,6 @@ export default function UpdateHomebtn({ id }: { id: number }) {
       if (error) {
         console.error('Error al actualizar:', error);
       } else {
-        console.log('Fila actualizada:', data);
         router.refresh(); // Refreshes the view or performs some action after the update
         setOpen(false); // Closes the dialog after the update
       }

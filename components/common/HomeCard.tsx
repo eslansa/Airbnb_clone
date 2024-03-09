@@ -7,8 +7,9 @@ import { Eye } from "lucide-react";
 
 export default function HomeCard({ home }: { home: any }) {
   return (
-    <Link href={`/home/${home.id}`}>
+    
       <div className="bg-white shadow-md rounded-lg p-4 max-w-sm mx-auto hover:shadow-lg transition-shadow duration-300 ease-in-out">
+        <Link href={`/home/${home.id}`}>
         <Image
           src={getImageUrl(home.image)}
           width={100}
@@ -22,12 +23,15 @@ export default function HomeCard({ home }: { home: any }) {
         </p>
         <p className="text-gray-600">{home.title}</p>
         <p className="text-gray-500 text-sm">{home.price}</p>
-        <Button className="bg-brand hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
+        </Link>
+        <Link href="/user-res">
+        <button className="bg-brand hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
           Reservar
-        </Button>
+        </button>
+        </Link>
       </div>
       
-    </Link>
+   
   );
 }
 

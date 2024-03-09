@@ -13,7 +13,7 @@ export default function BrandLogo() {
         className="lg:block hidden"
       />
       <Image
-        src="/icons/logo0.svg"
+        src="/icons/isologo.svg"
         width={90}
         height={90}
         alt="logo"
