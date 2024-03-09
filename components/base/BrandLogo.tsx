@@ -6,14 +6,14 @@ export default function BrandLogo() {
   return (
     <Link href="/" className="cursor-pointer">
       <Image
-        src="/images/logo2.png"
+        src="/icons/isologo.svg"
         width={120}
         height={120}
         alt="logo"
         className="lg:block hidden"
       />
       <Image
-        src="/images/logo2.png"
+        src="/icons/logo0.svg"
         width={90}
         height={90}
         alt="logo"
