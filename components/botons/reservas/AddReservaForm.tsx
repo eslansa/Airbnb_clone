@@ -68,16 +68,16 @@ export default function AddResForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit(submit)} className="mb-5">
+        <form onSubmit={handleSubmit(submit)} className="mb-5 ">
             <ToastContainer />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
                 <DatePickerRes
                     date={dateRange.startDate}
                     setDate={(newDate) => {
                         setDateRange(prevState => ({ ...prevState, startDate: newDate ?? new Date() }));
                     }}
                 />
-
+    
                 <DatePickerRes
                     date={dateRange.endDate}
                     setDate={(newDate) => {

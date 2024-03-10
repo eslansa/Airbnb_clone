@@ -24,13 +24,12 @@ export default function HomeCard({ home }: { home: any }) {
         <p className="text-gray-600">{home.title}</p>
         <p className="text-gray-500 text-sm">{home.price}</p>
         </Link>
-        <Link href="/user-res">
+        <Link href={`/home/${home.id}`}>
         <button className="bg-brand hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
           Reservar
         </button>
         </Link>
       </div>
-      
    
   );
 }

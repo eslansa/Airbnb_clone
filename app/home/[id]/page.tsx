@@ -6,6 +6,7 @@ import { getImageUrl } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Button } from "@/components/ui/button";
+import AddResForm from "@/components/botons/reservas/AddReservaForm";
 
 export default async function ShowHome({ params }: { params: { id: string } }) {
   const supabase = createServerComponentClient({ cookies });
@@ -49,9 +50,11 @@ export default async function ShowHome({ params }: { params: { id: string } }) {
             __html: home?.description,
           }}
         ></div>
-          <Button className="bg-brand hover:bg-red-500 text-white font-bold py-2 px-4 rounded">
-          Reservar
-        </Button>
+         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:gap-2 gap-4">
+        <div className="">
+           <AddResForm />
+           </div>
+           </div>
       </div>
     </div>
   );

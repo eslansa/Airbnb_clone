@@ -28,9 +28,9 @@ export default function NavMenu({ session }: { session: object | null }) {
                     Hoteles
                   </li>
                 </Link>
-                <Link href="/add-home" className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                {/* <Link href="/add-home" className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
                   Agregar un Hotel
-                </Link>
+                </Link> */}
                 <Link href="/res-home" className="hover:bg-gray-200 rounded-md cursor-pointer">
                   <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">Reservas </li>
                 </Link>
