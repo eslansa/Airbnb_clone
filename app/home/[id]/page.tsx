@@ -8,6 +8,8 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Button } from "@/components/ui/button";
 import AddResForm from "@/components/botons/reservas/AddReservaForm";
 
+export const runtime = 'edge';
+
 export default async function ShowHome({ params }: { params: { id: string } }) {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase
