@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Let's Adrenalina y Turismo it",
 };
 
-export const dynamic = "force-dynamic";
+export const runtime = 'edge';
 
 export default function RootLayout({
   children,

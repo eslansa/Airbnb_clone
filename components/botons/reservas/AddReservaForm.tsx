@@ -15,6 +15,8 @@ import "react-quill/dist/quill.snow.css";
 import { ResSchema, ResSchemaType } from "@/validation/resSchema";
 import { DatePickerRes } from "@/components/common/DatePickerRes";
 
+export const runtime = 'edge';
+
 // Define el tipo de estado de fecha que espera tu DatePicker
 type DateStateType = {
     startDate: Date;

@@ -16,6 +16,8 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { Button } from "../../ui/button";
 
+export const runtime = 'edge';
+
 export default function DeleteHomebtn({ id }: { id: number }) {
   const router = useRouter();
   const supabaseClient = createClientComponentClient();

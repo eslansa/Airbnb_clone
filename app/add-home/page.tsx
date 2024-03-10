@@ -1,8 +1,5 @@
 import AddHomeForm from "@/components/botons/hotels/AddHomeForm";
 import Navbar from "@/components/base/Navbar";
-import Counter from "@/components/common/Counter";
-import { generateRandomNumber } from "@/lib/utils";
-
 import Image from "next/image";
 import React from "react";
 

@@ -17,6 +17,8 @@ import { useRouter } from "next/navigation";
 import { Button } from "../../ui/button";
 import { Input } from "@/components/ui/input";
 
+export const runtime = 'edge';
+
 export default function UpdateHomebtn({ id }: { id: number }) {
  const router = useRouter();
  const supabaseClient = createClientComponentClient();
