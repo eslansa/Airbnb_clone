@@ -19,6 +19,10 @@ import { EditIcon, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UpdateHomebtn from "@/components/botons/hotels/UpdateHomebtn";
 import DeleteReservaBtn from "@/components/botons/reservas/DeleteReservaBtn";
+
+export const runtime = 'edge';
+
+
 export default async function Dashboardxd() {
   const serverSupabase = createServerComponentClient({ cookies });
   const { data: user } = await serverSupabase.auth.getUser();

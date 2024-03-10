@@ -3,6 +3,7 @@ import Navbar from "@/components/base/Navbar";
 import React from "react";
 import AddResForm from "@/components/botons/reservas/AddReservaForm";
 
+export const runtime = 'edge';
 
 
 export default function AddRes() {
