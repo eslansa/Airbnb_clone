@@ -45,7 +45,9 @@ export default async function Dashboard() {
             <TableCaption>Agregar mas Hoteles en Adrenalina & Turismo.
             <div className="flex justify-center mb-3">
           <button className="fle bg-cyan-500 hover:bg-cyan-700 text-white py-1 px-4 rounded justify-end text-end content-end">
+            <Link href="/add-home" className="text-sm font-semibold">
             <Plus />
+          </Link>
           </button>
         </div>
             </TableCaption>

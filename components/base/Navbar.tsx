@@ -19,9 +19,6 @@ export default async function Navbar() {
         </div>
         <SearchPopup session={session} />
         <div className="md:flex justify-center items-center space-x-4">
-          {/* <Link href="/add-home" className="text-sm font-semibold">
-            Agregar una casa
-          </Link> */}
           <NavMenu session={session.data?.session} />
         </div>
       </nav>
