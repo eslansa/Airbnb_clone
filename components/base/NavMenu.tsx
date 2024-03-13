@@ -33,7 +33,19 @@ export default function NavMenu({ session }: { session: object | null }) {
                 </Link>
              
                 <Link href="/res-home" className="hover:bg-gray-200 rounded-md cursor-pointer">
-                  <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">Reservas </li>
+                  <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                    Reservas 
+                  </li>
+                </Link>
+                <Link href="/#" className="hover:bg-gray-200 rounded-md cursor-pointer">
+                  <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                    Usuarios 
+                  </li>
+                </Link>
+                <Link href="/#" className="hover:bg-gray-200 rounded-md cursor-pointer">
+                  <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                    Servicios 
+                  </li>
                 </Link>
 
                 <SignOutBtn />
