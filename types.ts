@@ -25,7 +25,7 @@ type HomesType = {
 };
 
 type DateStateType = {
-  startDate: Date;
+  startDate: Date ;
   endDate: Date;
   key: string;
 };
@@ -34,3 +34,30 @@ type SearchParamsType = {
   country: string;
   weeks: string;
 };
+
+type ReservaType = {
+  id: any;
+  created_at: any;
+  id_uid: any;
+  date_ini: any;
+  date_fin: any;
+  pay: any;
+  num_person: any;
+  id_hotel: any;
+}
+
+interface DateRange {
+  startDate: Date ;
+  endDate: Date;
+  key: string;
+ }
+
+ interface Range {
+  startDate: Date;
+  endDate: Date;
+  key: string;
+ }
+ 
+
+
+ 

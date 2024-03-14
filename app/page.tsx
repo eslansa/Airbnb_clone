@@ -5,7 +5,6 @@ import HomeCard from "@/components/common/HomeCard";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export const runtime = 'edge';
 
 export default async function Home({
   searchParams,
@@ -33,7 +32,7 @@ export default async function Home({
 
       {/* Load the home cards */}
       {homes && homes?.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 px-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 px-10 mt-6 mb-6">
           {homes?.map((item) => (
             <HomeCard home={item} key={item.id} />
           ))}
@@ -42,7 +41,7 @@ export default async function Home({
 
       {homes && homes?.length < 1 && (
         <div className="text-center mt-4">
-          <h1 className="text-brand font-bold text-2xl">Adrenalina & Turismo Not found!</h1>
+          <h1 className="text-brand font-bold text-2xl">Adrenalina & Turismo...!</h1>
         </div>
       )}
     </div>

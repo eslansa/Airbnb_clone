@@ -23,15 +23,25 @@ export default function NavMenu({ session }: { session: object | null }) {
           <ul>
             {session ? (
               <>
+                 <Link href="/" className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                  Inicio
+                </Link>
                 <Link href="/dashboard">
                   <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
-                    Administrar
+                    Hoteles
                   </li>
                 </Link>
-                <Link href="/add-home" className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
-                  Agregar una casa
+             
+                <Link href="/res-home" className="hover:bg-gray-200 rounded-md cursor-pointer">
+                  <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                    Reservas 
+                  </li>
                 </Link>
-
+                <Link href="/users" className="hover:bg-gray-200 rounded-md cursor-pointer">
+                  <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
+                    Usuarios 
+                  </li>
+                </Link>
                 <SignOutBtn />
               </>
             ) : (

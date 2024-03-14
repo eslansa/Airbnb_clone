@@ -1,16 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+import { cookies } from "next/headers";
 
 export async function middleware(request: NextRequest) {
-  // Cast cookieValues to ReadonlyRequestCookies if necessary
-  const cookieValues = request.cookies as unknown as ReadonlyRequestCookies;
-
-  // Pass the readonly cookies to createServerComponentClient
-  const supabase = createServerComponentClient({
-    cookies: () => cookieValues,
-  });
-
+  const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.auth.getUser();
 
   if (data.user == null) {
@@ -23,5 +16,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/add-home", "/dashboard"],
+  matcher: ["/add-home", "/dashboard", "/res-home", "/users"],
 };

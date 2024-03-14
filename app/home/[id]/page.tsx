@@ -5,6 +5,8 @@ import Image from "next/image";
 import { getImageUrl } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Button } from "@/components/ui/button";
+import AddResForm from "@/components/botons/reservas/AddReservaForm";
 
 export const runtime = 'edge';
 
@@ -18,7 +20,7 @@ export default async function ShowHome({ params }: { params: { id: string } }) {
   return (
     <div className="mb-10">
       <Navbar />
-      <div className="container mt-5">
+      <div className="container mt-5 justify-center text-center">
         {/* Title and Country details */}
         <div>
           <h1 className="text-2xl font-bold">{home?.title}</h1>
@@ -26,29 +28,29 @@ export default async function ShowHome({ params }: { params: { id: string } }) {
             {home?.city} , {home?.state} ,{home?.country}
           </p>
         </div>
-
-        <Image
-          src={getImageUrl(home?.image)}
-          width={100}
-          height={100}
-          alt="home_img"
-          className="w-full rounded-lg h-[500px] object-cover object-center my-5"
-          unoptimized
-        />
+        <div className="flex justify-center items-center">
+          <Image
+            src={getImageUrl(home?.image)}
+            width={100}
+            height={100}
+            alt="home_img"
+            className="w-1/2 rounded-lg h-[500px] object-cover object-center my-5"
+            unoptimized
+          />
+        </div>
         <h1 className="text-2xl font-bold text-brand">
-          Reservado por {home?.users?.name}
+          Precio: <span className="text-zinc-900 font-mono">${home?.price}</span> 
         </h1>
-
-        <h1 className="text-xl font-semibold">
-          {home?.title} in {home?.city} , {home?.state} ,{home?.country}
-        </h1>
-
+        <span className="mt-2 font-bold font-mono text-2xl">Descripcion:</span>
         <div
-          className="mt-5"
+          className="mt-2 italic"
           dangerouslySetInnerHTML={{
             __html: home?.description,
           }}
         ></div>
+        <div className="flex justify-center mt-4">
+          <AddResForm />
+        </div>
       </div>
     </div>
   );

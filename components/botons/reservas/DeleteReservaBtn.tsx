@@ -11,26 +11,31 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Edit2Icon, Trash } from "lucide-react";
+import { Trash } from "lucide-react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Env from "@/config/Env";
 import { useRouter } from "next/navigation";
-import { Button } from "./ui/button";
-export default function UpdateHomebtn({ id, onEdit }: { id: number, onEdit: (id: number) => void }) {
-    const router = useRouter();
-    const supabaseClient = createClientComponentClient();
-   
-    const editHome = () => {
-       onEdit(id);
-    };
-   
-    return (
-       <AlertDialog>
-         <AlertDialogTrigger asChild>
-           <Button size="icon" variant="destructive" className="bg-blue-400" onClick={editHome}>
-             <Edit2Icon />
-           </Button>
-         </AlertDialogTrigger>
+import { Button } from "@/components/ui/button";
+
+export const runtime = 'edge';
+
+export default function DeleteReservaBtn({ id }: { id: number }) {
+  const router = useRouter();
+  const supabaseClient = createClientComponentClient();
+
+  const deleteReserva = async () => {
+    // * Delete the post
+    await supabaseClient.from("reservas").delete().eq('id', id);
+
+    router.refresh();
+  };
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button size="icon" variant="destructive">
+          <Trash />
+        </Button>
+      </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Estas seguro?</AlertDialogTitle>
@@ -41,7 +46,7 @@ export default function UpdateHomebtn({ id, onEdit }: { id: number, onEdit: (id:
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction onClick={editHome}>Continuar</AlertDialogAction>
+          <AlertDialogAction onClick={deleteReserva}>Continuar</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

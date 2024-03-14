@@ -6,10 +6,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Adrenalina y Turismo",
-  description: "Let's Adrenalina y Turismo it",
+  description: "Clone Airbnb llamado Adrenalina y Turismo",
 };
 
-export const dynamic = "force-dynamic";
+export const runtime = 'edge';
 
 export default function RootLayout({
   children,
@@ -18,6 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/icons/imagotipo.svg" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
