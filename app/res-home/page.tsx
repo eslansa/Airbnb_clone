@@ -87,7 +87,7 @@ export default async function ResHome() {
 
         {reservas && reservas.length < 1 && (
           <h1 className="text-center font-bold text-xl">
-            No hay hoteles por ahora...
+            Adrenalina & Turismo...
           </h1>
         )}
       </div>

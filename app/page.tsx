@@ -41,7 +41,7 @@ export default async function Home({
 
       {homes && homes?.length < 1 && (
         <div className="text-center mt-4">
-          <h1 className="text-brand font-bold text-2xl">Adrenalina & Turismo, No tiene hoteles por ahora...!</h1>
+          <h1 className="text-brand font-bold text-2xl">Adrenalina & Turismo...!</h1>
         </div>
       )}
     </div>
