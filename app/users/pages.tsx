@@ -19,17 +19,16 @@ import { EditIcon, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UpdateHomebtn from "@/components/botons/hotels/UpdateHomebtn";
 import DeleteReservaBtn from "@/components/botons/reservas/DeleteReservaBtn";
-import UpdateReservabtn from "@/components/botons/reservas/UpdateReservbtn";
 
 export const runtime = 'edge';
 
 
-export default async function ResHome() {
+export default async function Users() {
   const serverSupabase = createServerComponentClient({ cookies });
   const { data: user } = await serverSupabase.auth.getUser();
   const { data: reservas } = await serverSupabase
     .from("reservas")
-    .select("id ,created_at ,user_id ,date_ini ,date_fin ,pay ,num_person, name, apellidos, telef")
+    .select("id ,created_at ,user_id ,date_ini ,date_fin ,pay ,num_person")
     .eq("user_id", user.user?.id);
 
 
@@ -44,13 +43,11 @@ export default async function ResHome() {
             <TableHeader>
               <TableRow>
                 <TableHead>ID</TableHead>
-                <TableHead>Nombre</TableHead>
-                <TableHead>Apellidos</TableHead>
-                <TableHead>Telefono</TableHead>
+                <TableHead>Creación Reserva</TableHead>
                 <TableHead>Fecha Inicio</TableHead>
                 <TableHead>Fecha Fin</TableHead>
                 <TableHead>Metodo de Pago</TableHead>
-                <TableHead>Personas</TableHead>
+                <TableHead>Número de Personas</TableHead>
                 <TableHead>Acciones</TableHead>
               </TableRow>
             </TableHeader>
@@ -59,11 +56,9 @@ export default async function ResHome() {
                 return (
                 <TableRow key={item.id}>
                   <TableCell>{item.id}</TableCell>
-                  <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.apellidos}</TableCell>
-                  <TableCell>{item.telef}</TableCell>
+                  <TableCell>{item.created_at}</TableCell>
                   <TableCell>{item.date_ini}</TableCell>
-                  <TableCell>{item.date_ini}</TableCell>
+                  <TableCell>{item.date_fin}</TableCell>
                   <TableCell>{item.pay}</TableCell>
                   <TableCell>{item.num_person}</TableCell>
                   <TableCell>
@@ -74,7 +69,7 @@ export default async function ResHome() {
                           <Eye />
                         </Button>
                       </Link>
-                      <UpdateReservabtn id={item.id} />
+                      {/* <UpdateHomebtn id={item.id} /> */}
                     </div>
                   </TableCell>
                 </TableRow>

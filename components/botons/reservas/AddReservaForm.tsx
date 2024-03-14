@@ -58,6 +58,9 @@ export default function AddResForm() {
             date_fin: payload.date_fin,
             pay: payload.pay,
             num_person: payload.num_person,
+            name: payload.name,
+            apellidos: payload.apellidos,
+            telef: payload.telef,
         });
 
         if (homeErr) {
@@ -73,26 +76,20 @@ export default function AddResForm() {
         <form onSubmit={handleSubmit(submit)} className="mb-5 text-center justify-center items-center">
             <ToastContainer />
             <div className="flex flex-col items-center">
-                <div className="mt-5 w-full">
-                    <Label htmlFor="startDate" className="grid grid-flow-col  mb-1">Fecha Inicio</Label>
-                    <DatePickerRes
-                        date={dateRange.startDate}
-                        setDate={(newDate) => {
-                            setDateRange(prevState => ({ ...prevState, startDate: newDate ?? new Date() }));
-                        }}
-                    />
+            <div className="mt-5 w-full">
+                    <Label htmlFor="name">Nombre</Label>
+                    <Input placeholder="Inserte su nombre" id="name" {...register("name")} />
+                    <span className="text-red-500 font-bold">
+                        {errors?.name?.message}
+                    </span>
                 </div>
-
                 <div className="mt-5 w-full">
-                    <Label htmlFor="endDate" className="grid grid-flow-col mb-1">Fecha Fin</Label>
-                    <DatePickerRes
-                        date={dateRange.endDate}
-                        setDate={(newDate) => {
-                            setDateRange(prevState => ({ ...prevState, endDate: newDate ?? new Date() }));
-                        }}
-                    />
+                    <Label htmlFor="apellidos">Apellidos</Label>
+                    <Input placeholder="Inserte sus apellidos" id="apellidos" {...register("apellidos")} />
+                    <span className="text-red-500 font-bold">
+                        {errors?.apellidos?.message}
+                    </span>
                 </div>
-
                 <div className="mt-5 w-full">
                     <Label htmlFor="pay">Tipo de Pago</Label>
                     <Input placeholder="Efectivo,Tarjeta..." id="pay" {...register("pay")} />
@@ -113,6 +110,39 @@ export default function AddResForm() {
                         {errors?.num_person?.message}
                     </span>
                 </div>
+                <div className="mt-5 w-full">
+                    <Label htmlFor="telef">Numero Telefono</Label>
+                    <Input
+                        placeholder="+1"
+                        type="number"
+                        id="telef"
+                        {...register("telef")}
+                    />
+                    <span className="text-red-500 font-bold">
+                        {errors?.telef?.message}
+                    </span>
+                </div>
+                <div className="mt-5 w-full">
+                    <Label htmlFor="startDate" className="grid grid-flow-col  mb-1">Fecha Inicio</Label>
+                    <DatePickerRes
+                        date={dateRange.startDate}
+                        setDate={(newDate) => {
+                            setDateRange(prevState => ({ ...prevState, startDate: newDate ?? new Date() }));
+                        }}
+                    />
+                </div>
+
+                <div className="mt-5 w-full">
+                    <Label htmlFor="endDate" className="grid grid-flow-col mb-1">Fecha Fin</Label>
+                    <DatePickerRes
+                        date={dateRange.endDate}
+                        setDate={(newDate) => {
+                            setDateRange(prevState => ({ ...prevState, endDate: newDate ?? new Date() }));
+                        }}
+                    />
+                </div>
+
+               
             </div>
             <div className="mt-5">
                 <Button className="bg-brand" disabled={loading}>

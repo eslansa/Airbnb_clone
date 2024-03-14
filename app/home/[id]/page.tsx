@@ -48,7 +48,6 @@ export default async function ShowHome({ params }: { params: { id: string } }) {
             __html: home?.description,
           }}
         ></div>
-        {/* AddResForm */}
         <div className="flex justify-center mt-4">
           <AddResForm />
         </div>
