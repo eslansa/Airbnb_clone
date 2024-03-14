@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Adrenalina y Turismo
+Visita el proyecto en: https://airbnb-clone-ae3.pages.dev
+## Descripción
 
-## Getting Started
+Adrenalina y Turismo es un proyecto que busca replicar la experiencia de Airbnb, ofreciendo una plataforma para alquilar y reservar alojamientos turísticos. Este proyecto es un clon de Airbnb con el objetivo de explorar y aplicar nuevas tecnologías y prácticas de desarrollo web.
 
-First, run the development server:
+## Tecnologías Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- **Next.js**: Un framework de React para la construcción de aplicaciones web y sitios estáticos.
+- **Typescript**: Para añadir tipado estático a nuestro proyecto, mejorando la calidad del código y facilitando el mantenimiento.
+- **ShadcnUI**: Una biblioteca de componentes de UI para React, que nos permite construir interfaces de usuario de manera rápida y eficiente.
+- **TailwindCSS**: Un framework de CSS que nos permite construir diseños personalizados de manera rápida y eficiente, utilizando clases de utilidad.
+- **Supabase**: Una plataforma de backend como servicio que nos proporciona autenticación, base de datos en tiempo real, almacenamiento y funciones serverless, facilitando la construcción de aplicaciones web modernas.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Instalación
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clona el repositorio en tu máquina local.
+2. Navega al directorio del proyecto.
+3. Instala las dependencias del proyecto.
 
-## Learn More
+## Ejecución Local
 
-To learn more about Next.js, take a look at the following resources:
+Para ejecutar el proyecto localmente, sigue estos pasos:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Asegúrate de estar en el directorio del proyecto.
+2. Ejecuta el siguiente comando para iniciar el servidor de desarrollo.
+3. Abre tu navegador y visita `http://localhost:3000` para ver la aplicación en funcionamiento.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contribuir
 
-## Deploy on Vercel
+Si estás interesado en contribuir a este proyecto, por favor sigue estos pasos:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Haz un fork del repositorio.
+2. Crea una nueva rama con tu característica (`git checkout -b feature/AmazingFeature`).
+3. Haz commit de tus cambios (`git commit -m 'Add some AmazingFeature'`).
+4. Haz push a la rama (`git push origin feature/AmazingFeature`).
+5. Abre un Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+---
