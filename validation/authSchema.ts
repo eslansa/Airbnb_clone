@@ -7,7 +7,7 @@ export const registerSchema = yup
     password: yup.string().required().min(6).max(30),
     password_confirmation: yup
       .string()
-      .oneOf([yup.ref("contraseña")], "Confirma tu contraseña")
+      .oneOf([yup.ref("password")], "Confirma tu contraseña")
       .required(),
   })
   .required();

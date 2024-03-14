@@ -37,7 +37,7 @@ export default function NavMenu({ session }: { session: object | null }) {
                     Reservas 
                   </li>
                 </Link>
-                <Link href="/#" className="hover:bg-gray-200 rounded-md cursor-pointer">
+                <Link href="/users" className="hover:bg-gray-200 rounded-md cursor-pointer">
                   <li className="hover:bg-gray-200 rounded-md p-2 cursor-pointer">
                     Usuarios 
                   </li>

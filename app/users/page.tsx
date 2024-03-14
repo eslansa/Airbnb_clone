@@ -19,17 +19,18 @@ import { EditIcon, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UpdateHomebtn from "@/components/botons/hotels/UpdateHomebtn";
 import DeleteReservaBtn from "@/components/botons/reservas/DeleteReservaBtn";
+import UpdateReservabtn from "@/components/botons/reservas/UpdateReservbtn";
 
 export const runtime = 'edge';
 
 
-export default async function Users() {
+export default async function ResHome() {
   const serverSupabase = createServerComponentClient({ cookies });
   const { data: user } = await serverSupabase.auth.getUser();
   const { data: reservas } = await serverSupabase
-    .from("reservas")
-    .select("id ,created_at ,user_id ,date_ini ,date_fin ,pay ,num_person")
-    .eq("user_id", user.user?.id);
+    .from("users")
+    .select("id ,created_at ,email")
+
 
 
   return (
@@ -43,12 +44,8 @@ export default async function Users() {
             <TableHeader>
               <TableRow>
                 <TableHead>ID</TableHead>
-                <TableHead>Creación Reserva</TableHead>
-                <TableHead>Fecha Inicio</TableHead>
-                <TableHead>Fecha Fin</TableHead>
-                <TableHead>Metodo de Pago</TableHead>
-                <TableHead>Número de Personas</TableHead>
-                <TableHead>Acciones</TableHead>
+                <TableHead>Fecha de Creacion</TableHead>
+                <TableHead>Correo</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -57,11 +54,8 @@ export default async function Users() {
                 <TableRow key={item.id}>
                   <TableCell>{item.id}</TableCell>
                   <TableCell>{item.created_at}</TableCell>
-                  <TableCell>{item.date_ini}</TableCell>
-                  <TableCell>{item.date_fin}</TableCell>
-                  <TableCell>{item.pay}</TableCell>
-                  <TableCell>{item.num_person}</TableCell>
-                  <TableCell>
+                  <TableCell>{item.email}</TableCell>
+                  {/* <TableCell>
                     <div className="flex items-center space-x-2">
                       <DeleteReservaBtn id={item.id} />
                       <Link href={`/home/${item.id}`}>
@@ -69,9 +63,9 @@ export default async function Users() {
                           <Eye />
                         </Button>
                       </Link>
-                      {/* <UpdateHomebtn id={item.id} /> */}
+                      <UpdateReservabtn id={item.id} />
                     </div>
-                  </TableCell>
+                  </TableCell> */}
                 </TableRow>
                 );
             }
@@ -82,7 +76,7 @@ export default async function Users() {
 
         {reservas && reservas.length < 1 && (
           <h1 className="text-center font-bold text-xl">
-            No hay hoteles por ahora...
+            Usuarios en Adrenalina y Turismo...
           </h1>
         )}
       </div>
