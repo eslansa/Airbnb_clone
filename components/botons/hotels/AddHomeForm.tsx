@@ -19,6 +19,7 @@ import { HomeSchemaType, homeSchema } from "@/validation/homeSchema";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import dynamic from 'next/dynamic';
+import { Textarea } from "@/components/ui/textarea";
 
 export const runtime = 'edge';
 
@@ -90,16 +91,16 @@ export default function AddHomeForm() {
       return;
     }
 
-    router.push("/dashboard?success=Home added successfully!");
+    router.push("/dashboard?success=Hotel agregado correctamente!");
   };
   return (
     <form onSubmit={handleSubmit(submit)} className="mb-5">
       <ToastContainer />
       <div className="grid grid-cols-1  lg:grid-cols-2  gap-4">
         <div className="mt-5">
-          <Label htmlFor="title">Title</Label>
+          <Label htmlFor="title">Nombre</Label>
           <Input
-            placeholder="Enter title"
+            placeholder="Escribir Nombre"
             id="title"
             onChange={(e) => setValue("title", e.target.value)}
           />
@@ -108,13 +109,13 @@ export default function AddHomeForm() {
           </span>
         </div>
         <div className="mt-5">
-          <Label htmlFor="countries">Countries</Label>
+          <Label htmlFor="countries">País</Label>
           <select
             className="outline-brand h-10 px-3 py-2 rounded-md w-full border"
             id="countries"
             {...register("country")}
           >
-            <option value=""> -- Select Counrties --</option>
+            <option value=""> -- Seleccionar País --</option>
             {countries.map((item) => (
               <option key={item.label} value={item.value}>
                 {item.label}
@@ -126,23 +127,23 @@ export default function AddHomeForm() {
           </span>
         </div>
         <div className="mt-5">
-          <Label htmlFor="state">State</Label>
-          <Input placeholder="Enter state" id="state" {...register("state")} />
+          <Label htmlFor="state">Estado</Label>
+          <Input placeholder="Escribir Estado" id="state" {...register("state")} />
           <span className="text-red-500 font-bold">
             {errors?.state?.message}
           </span>
         </div>
         <div className="mt-5">
-          <Label htmlFor="city">City</Label>
-          <Input placeholder="Enter city" id="city" {...register("city")} />
+          <Label htmlFor="city">Ciudad</Label>
+          <Input placeholder="Escribir Ciudad" id="city" {...register("city")} />
           <span className="text-red-500 font-bold">
             {errors?.city?.message}
           </span>
         </div>
         <div className="mt-5">
-          <Label htmlFor="price">Price</Label>
+          <Label htmlFor="price">Precio</Label>
           <Input
-            placeholder="Enter price"
+            placeholder="Insertar Precio"
             type="number"
             id="price"
             {...register("price")}
@@ -152,10 +153,10 @@ export default function AddHomeForm() {
           </span>
         </div>
         <div className="mt-5">
-          <Label htmlFor="image">Image</Label>
+          <Label htmlFor="image">Imagen</Label>
           <Input
             type="file"
-            placeholder="Enter image"
+            placeholder="Insertar Imagen"
             id="image"
             onChange={handleImage}
           />
@@ -165,23 +166,23 @@ export default function AddHomeForm() {
         </div>
       </div>
       <div className="mt-5">
-        <Label htmlFor="description">Description</Label>
-        {/* <Textarea
-          placeholder="Write your description here.."
+        <Label htmlFor="description">Descripción</Label>
+        <Textarea
+          placeholder="Escribe una descripción del hotel aquí... "
           id="description"
           {...register("description")}
-        ></Textarea> */}
-        <ReactQuill
+        ></Textarea>
+        {/* <ReactQuill
           theme="snow"
           value={description}
-          onChange={setDescription}
-        />
+          onChange={setDescription} 
+        /> */}
         <span className="text-red-500 font-bold">
           {errors?.description?.message}
         </span>
       </div>
       <div className="mt-5">
-        <Label htmlFor="categories">Categories</Label>
+        <Label htmlFor="categories">Categorías o Servicios</Label>
         <div className="mt-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((item) => (
             <div className="items-top flex space-x-2" key={item.name}>
@@ -214,7 +215,7 @@ export default function AddHomeForm() {
       </div>
       <div className="mt-5">
         <Button className="bg-brand w-full" disabled={loading}>
-          {loading ? "Processing..." : "Submit"}
+          {loading ? "Cargando..." : "Agregar"}
         </Button>
       </div>
     </form>

@@ -14,7 +14,6 @@ export default function AddRes() {
       <Navbar />
       <div className="container mt-10">
         <div className="container mt-5 ">
-        
           <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:gap-2 gap-4">
             <AddResForm />
           </div>

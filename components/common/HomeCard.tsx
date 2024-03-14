@@ -69,7 +69,7 @@ export default function HomeCard({ home }: { home: any }) {
         {home.city}, {home.country}
       </p>
       <p className="text-gray-600">{home.title}</p>
-      <p className="text-gray-500 text-sm font-bold">${home.price}</p>
+      <p className="text-gray-500 text-sm font-bold">$ {home.price}</p>
       <Link href={`/home/${home.id}`}>
         <Button>Reservar</Button>
       </Link>

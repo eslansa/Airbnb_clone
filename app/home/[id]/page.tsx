@@ -29,22 +29,18 @@ export default async function ShowHome({ params }: { params: { id: string } }) {
           </p>
         </div>
         <div className="flex justify-center items-center">
-        <Image
-          src={getImageUrl(home?.image)}
-          width={100}
-          height={100}
-          alt="home_img"
-          className="w-1/2 rounded-lg h-[500px] object-cover object-center my-5"
-          unoptimized
-        />
+          <Image
+            src={getImageUrl(home?.image)}
+            width={100}
+            height={100}
+            alt="home_img"
+            className="w-1/2 rounded-lg h-[500px] object-cover object-center my-5"
+            unoptimized
+          />
         </div>
         <h1 className="text-2xl font-bold text-brand">
-          Precio: <span className=" text-zinc-900 font-mono">${home?.price}</span> 
+          Precio: <span className="text-zinc-900 font-mono">${home?.price}</span> 
         </h1>
-
-        {/* <h1 className="text-xl font-semibold">
-          {home?.title} in {home?.city} , {home?.state} ,{home?.country}
-        </h1> */}
         <span className="mt-2 font-bold font-mono text-2xl">Descripcion:</span>
         <div
           className="mt-2 italic"
@@ -52,11 +48,10 @@ export default async function ShowHome({ params }: { params: { id: string } }) {
             __html: home?.description,
           }}
         ></div>
-         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:gap-2 gap-4">
-        <div className="">
-           <AddResForm />
-           </div>
-           </div>
+        {/* AddResForm */}
+        <div className="flex justify-center mt-4">
+          <AddResForm />
+        </div>
       </div>
     </div>
   );

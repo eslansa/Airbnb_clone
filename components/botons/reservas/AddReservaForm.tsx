@@ -66,35 +66,42 @@ export default function AddResForm() {
             return;
         }
 
-        router.push("/dashboard?success=Home added successfully!");
+        router.push("/res-home?success=Home added successfully!");
     };
 
     return (
-        <form onSubmit={handleSubmit(submit)} className="mb-5 ">
+        <form onSubmit={handleSubmit(submit)} className="mb-5 text-center justify-center items-center">
             <ToastContainer />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
-                <DatePickerRes
-                    date={dateRange.startDate}
-                    setDate={(newDate) => {
-                        setDateRange(prevState => ({ ...prevState, startDate: newDate ?? new Date() }));
-                    }}
-                />
-    
-                <DatePickerRes
-                    date={dateRange.endDate}
-                    setDate={(newDate) => {
-                        setDateRange(prevState => ({ ...prevState, endDate: newDate ?? new Date() }));
-                    }}
-                />
+            <div className="flex flex-col items-center">
+                <div className="mt-5 w-full">
+                    <Label htmlFor="startDate" className="grid grid-flow-col  mb-1">Fecha Inicio</Label>
+                    <DatePickerRes
+                        date={dateRange.startDate}
+                        setDate={(newDate) => {
+                            setDateRange(prevState => ({ ...prevState, startDate: newDate ?? new Date() }));
+                        }}
+                    />
+                </div>
 
-                <div className="mt-5">
+                <div className="mt-5 w-full">
+                    <Label htmlFor="endDate" className="grid grid-flow-col mb-1">Fecha Fin</Label>
+                    <DatePickerRes
+                        date={dateRange.endDate}
+                        setDate={(newDate) => {
+                            setDateRange(prevState => ({ ...prevState, endDate: newDate ?? new Date() }));
+                        }}
+                    />
+                </div>
+
+                <div className="mt-5 w-full">
                     <Label htmlFor="pay">Tipo de Pago</Label>
                     <Input placeholder="Efectivo,Tarjeta..." id="pay" {...register("pay")} />
                     <span className="text-red-500 font-bold">
                         {errors?.pay?.message}
                     </span>
                 </div>
-                <div className="mt-5">
+                
+                <div className="mt-5 w-full">
                     <Label htmlFor="num_person">Numero Personas</Label>
                     <Input
                         placeholder="1-4"
@@ -108,7 +115,7 @@ export default function AddResForm() {
                 </div>
             </div>
             <div className="mt-5">
-                <Button className="bg-brand w-full" disabled={loading}>
+                <Button className="bg-brand" disabled={loading}>
                     {loading ? "Processing..." : "Reservar"}
                 </Button>
             </div>

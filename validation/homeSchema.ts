@@ -8,13 +8,13 @@ export const homeSchema = yup
     country: yup.string().required(),
     state: yup.string().required(),
     city: yup.string().required(),
-    price: yup.number().required().typeError("Amount should be number"),
+    price: yup.number().required().typeError("Solo se aceptan numeros"),
     description: yup.string().min(10).max(20000).required(),
     categories: yup
       .mixed<Array<string> | []>()
       .test(
-        "categories",
-        "Please select at least one categories",
+        "categorias",
+        "Selecciona al menos una categoría",
         (data: any) => {
           const isValid = data?.length >= 1;
           return isValid;
@@ -22,7 +22,7 @@ export const homeSchema = yup
       ),
     image: yup
       .mixed()
-      .test("imageType", "Only JPEG or PNG images are allowed", (file: any) => {
+      .test("imageType", "Solo puedes insertar fotos", (file: any) => {
         const isValid =
           file?.type === "image/jpeg" ||
           file?.type === "image/png" ||

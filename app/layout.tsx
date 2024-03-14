@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Adrenalina y Turismo",
-  description: "Let's Adrenalina y Turismo it",
+  description: "Clone Airbnb llamado Adrenalina y Turismo",
 };
 
 export const runtime = 'edge';
