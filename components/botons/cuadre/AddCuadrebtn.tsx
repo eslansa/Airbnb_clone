@@ -80,7 +80,7 @@ export default function AddCuadrebtn() {
                 </div>
                 <div className="mt-5 w-full">
                     <Label htmlFor="cant_fin">CF</Label>
-                    <Input placeholder="Cantidad Vendida." id="cant_fin" {...register("cant_fin")} />
+                    <Input placeholder="Cantidad Final." id="cant_fin" {...register("cant_fin")} />
                     <span className="text-red-500 font-bold">
                         {errors?.cant_fin?.message}
                     </span>
