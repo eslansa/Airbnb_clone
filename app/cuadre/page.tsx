@@ -25,7 +25,7 @@ export default async function Cuadre() {
   const { data: user } = await serverSupabase.auth.getUser();
   const { data: reservas } = await serverSupabase
     .from("producto")
-    .select("id ,created_at, cant, precio, total, name")
+    .select("id ,created_at, cant_ini,cant_fin,cant_vent, precio, total, name")
 
 
   return (
@@ -35,17 +35,19 @@ export default async function Cuadre() {
       <div className="container mt-5">
         <div className="flex gap-2">
         <SumaTotalButton />
-        <LimpiarCuadrebtn />
+        {/* <LimpiarCuadrebtn /> */}
         </div>
         <AddCuadrebtn />
         {reservas && reservas.length > 0 && (
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Nombre</TableHead>
-                <TableHead>Cantidad</TableHead>
+                <TableHead>Producto</TableHead>
+                <TableHead>CI</TableHead>
+                <TableHead>CF</TableHead>
+                <TableHead>Venta</TableHead>
                 <TableHead>Precio</TableHead>
-                <TableHead>Total Vendido</TableHead>
+                <TableHead>Total Venta</TableHead>
                 <TableHead>Acciones</TableHead>
               </TableRow>
             </TableHeader>
@@ -54,7 +56,9 @@ export default async function Cuadre() {
                 return (
                 <TableRow key={item.id}>
                   <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.cant}</TableCell>
+                  <TableCell>{item.cant_ini}</TableCell>
+                  <TableCell>{item.cant_fin}</TableCell>
+                  <TableCell>{item.cant_vent}</TableCell>
                   <TableCell>{item.precio}</TableCell>
                   <TableCell>{item.total}</TableCell>
                   <TableCell>

@@ -24,7 +24,8 @@ export default function UpdateCuadrebtn({ id }: { id: number }) {
  const supabaseClient = createClientComponentClient();
  const [open, setOpen] = useState(false); // Controls the visibility of the dialog
  const [newName, setNewName] = useState(''); // State for the new name
- const [newCant, setNewCant] = useState('');
+ const [newCant_ini, setNewCant_ini] = useState('');
+ const [newCant_fin, setNewCant_fin] = useState('');
  const [newPrecio, setNewPrecio] = useState('');
 
 
@@ -34,7 +35,8 @@ export default function UpdateCuadrebtn({ id }: { id: number }) {
         .from("producto")
         .update({ 
           name: newName,
-          cant: newCant,
+          cant_ini: newCant_ini,
+          cant_fin: newCant_fin,
           precio: newPrecio,
         }) // Updates the fields with the new values
         .eq("id", id);
@@ -68,21 +70,28 @@ export default function UpdateCuadrebtn({ id }: { id: number }) {
           type="text"
           value={newName}
           onChange={(e) => setNewName(e.target.value)}
-          placeholder="Nuevo Nombre"
+          placeholder="Editar Producto"
           className="border-2 border-gray-300 p-2 rounded-md mt-4"
         />
         <Input
           type="number"
-          value={newCant}
-          onChange={(e) => setNewCant(e.target.value)}
-          placeholder="Nueva Cantidad"
+          value={newCant_ini}
+          onChange={(e) => setNewCant_ini(e.target.value)}
+          placeholder="Editar CI"
+          className="border-2 border-gray-300 p-2 rounded-md mt-4"
+        />
+        <Input
+          type="number"
+          value={newCant_fin}
+          onChange={(e) => setNewCant_fin(e.target.value)}
+          placeholder="Editar CF"
           className="border-2 border-gray-300 p-2 rounded-md mt-4"
         />
         <Input
           type="number"
           value={newPrecio}
           onChange={(e) => setNewPrecio(e.target.value)}
-          placeholder="Nuevo Precio"
+          placeholder="Editar Precio"
           className="border-2 border-gray-300 p-2 rounded-md mt-4"
         />
         <AlertDialogFooter>

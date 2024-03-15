@@ -35,13 +35,16 @@ export default function AddCuadrebtn() {
         setLoading(true);
         const user = await supabase.auth.getUser();
     
-        const cant = Number(payload.cant);
+        const cant_ini = Number(payload.cant_ini);
+        const cant_fin = Number(payload.cant_fin);
         const precio = Number(payload.precio);
     
         const { error: homeErr, data } = await supabase.from("producto").insert({
             name: payload.name,
-            cant: cant,
+            cant_ini: cant_ini,
+            cant_fin: cant_fin,
             precio: precio,
+
         });
     
         if (homeErr) {
@@ -62,22 +65,29 @@ export default function AddCuadrebtn() {
             <ToastContainer />
             <div className="flex flex-col items-center">
             <div className="mt-5 w-full">
-                    <Label htmlFor="name">Nombre</Label>
+                    <Label htmlFor="name">Producto</Label>
                     <Input placeholder="Nombre del producto" id="name" {...register("name")} />
                     <span className="text-red-500 font-bold">
                         {errors?.name?.message}
                     </span>
                 </div>
                 <div className="mt-5 w-full">
-                    <Label htmlFor="cant">Cantidad</Label>
-                    <Input placeholder="Cantidad." id="cant" {...register("cant")} />
+                    <Label htmlFor="cant_ini">CI</Label>
+                    <Input placeholder="Cantidad Inicial." id="cant_ini" {...register("cant_ini")} />
                     <span className="text-red-500 font-bold">
-                        {errors?.cant?.message}
+                        {errors?.cant_ini?.message}
                     </span>
                 </div>
                 <div className="mt-5 w-full">
-                    <Label htmlFor="precio">Precio</Label>
-                    <Input placeholder="Precio." id="precio" {...register("precio")} />
+                    <Label htmlFor="cant_fin">CF</Label>
+                    <Input placeholder="Cantidad Vendida." id="cant_fin" {...register("cant_fin")} />
+                    <span className="text-red-500 font-bold">
+                        {errors?.cant_fin?.message}
+                    </span>
+                </div>
+                <div className="mt-5 w-full">
+                    <Label htmlFor="precio">Precio Producto</Label>
+                    <Input placeholder="Precio del producto." id="precio" {...register("precio")} />
                     <span className="text-red-500 font-bold">
                         {errors?.precio?.message}
                     </span>

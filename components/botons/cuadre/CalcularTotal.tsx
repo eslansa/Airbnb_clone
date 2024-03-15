@@ -10,18 +10,18 @@ const supabase = createClientComponentClient();
 
  const obtenerSumaTotal = async () => {
     try {
-      const { data, error } = await supabase.rpc('calcular_suma_total');
+      const { data, error } = await supabase.rpc('actualizar_cuadre_total_y_guardar');
       if (error) throw error;
       // Ajusta esta línea para acceder directamente a data, ya que data es el resultado de la función RPC
       setSumaTotal(data);
     } catch (error) {
-      console.error('Error al obtener la suma total:', error);
+      console.error('Error al obtener el cuadre:', error);
     }
 };
 
  return (
     <div>
-      <Button onClick={obtenerSumaTotal}>Obtener Suma Total</Button>
+      <Button onClick={obtenerSumaTotal}>Cuadre Total</Button>
       {sumaTotal && <p>El cuadre es: {sumaTotal}</p>}
     </div>
  );
